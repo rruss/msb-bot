@@ -163,7 +163,7 @@ if __name__ == '__main__':
         pk_ip_data = check_pk_ip()
         if (stat_data.get('is_ok') and pk_too_data.get('is_ok') and pk_ip_data.get('is_ok')) is False:
             tag = '#error'
-            greet_txt = "\U0001F198 Found error, @rruss \U0001F198"
+            greet_txt = f"\U0001F198 Found error, {config.get('USER')} \U0001F198"
         text = f"{greet_txt}\n" \
                f"[{datetime.now()}]\n" \
                "stat.gov.kz: \n" \
