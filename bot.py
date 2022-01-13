@@ -152,8 +152,7 @@ def send_message_bot(text):
 
 
 if __name__ == '__main__':
-    tag = '#stable'
-    greet_txt = "\U0001F197 Everything is stable \U0001F197"
+
     while True:
         logging.info('Checking Stat Gov')
         stat_data = check_stat()
@@ -161,9 +160,13 @@ if __name__ == '__main__':
         pk_too_data = check_pk_too()
         logging.info('Checking PK IP')
         pk_ip_data = check_pk_ip()
-        if (stat_data.get('is_ok') and pk_too_data.get('is_ok') and pk_ip_data.get('is_ok')) is False:
+        if stat_data.get('is_ok') and pk_too_data.get('is_ok') and pk_ip_data.get('is_ok'):
+            tag = '#stable'
+            greet_txt = "\U0001F197 Everything is stable \U0001F197"
+        else:
             tag = '#error'
             greet_txt = f"\U0001F198 Found error, {config.get('USER')} \U0001F198"
+
         text = f"{greet_txt}\n" \
                f"[{datetime.now()}]\n" \
                "stat.gov.kz: \n" \
